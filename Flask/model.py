@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
 
-data=pd.read_csv('/Users/malloryhightower/Desktop/Flask/dataset.csv')
+data=pd.read_csv('dataset.csv')
 
 data=data.drop(['Unnamed: 5', 'Unnamed: 6','Index'], axis=1)
 
