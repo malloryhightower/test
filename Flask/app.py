@@ -24,7 +24,8 @@ def predict():
 
         return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(type(final_features))
     
-    return render_template('index.html', prediction_text='invalid input')
+    else:
+        return render_template('index.html', prediction_text='invalid input')
     
 
 @app.route('/predict_api',methods=['POST'])
