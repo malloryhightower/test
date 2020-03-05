@@ -17,7 +17,7 @@ def predict():
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     
-    if all(type(item)==int for item in final_features) # new code
+    if all(type(item)==int for item in final_features) == True: # new code
         prediction = model.predict(final_features)
 
         output = round(prediction[0], 2)
