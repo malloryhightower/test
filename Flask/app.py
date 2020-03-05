@@ -14,21 +14,20 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    
+    if nan in request.form.values():
+        return render_template('index.html', prediction_text='invalid input')
+    else:
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     final_features = np.asarray(final_features)
     
-    if np.isnan(final_features).any() == False: # new code
-        prediction = model.predict(final_features)
 
-        output = round(prediction[0], 2)
+    prediction = model.predict(final_features)
 
-        return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(request.form.values))
-    
-    else:
-        return render_template('index.html', prediction_text='invalid input')
-    
+    output = round(prediction[0], 2)
+
+    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(request.form.values))
+     
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
