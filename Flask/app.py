@@ -16,7 +16,7 @@ def predict():
     '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    if final_features.isdigit(): # new code
+    if final_features.isdigit() == True: # new code
         prediction = model.predict(final_features)
 
         output = round(prediction[0], 2)
