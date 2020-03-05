@@ -17,14 +17,14 @@ def predict():
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     
-    if all(type(item)==int for item in final_features) == True: # new code
+    if all(isinstance(item, int) for item in final_features) == True: # new code
         prediction = model.predict(final_features)
 
         output = round(prediction[0], 2)
 
         return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
-    else: # new code 
-        return render_template('index.html', prediction_text='invalid input')
+    
+    return render_template('index.html', prediction_text='invalid input')
     
 
 @app.route('/predict_api',methods=['POST'])
