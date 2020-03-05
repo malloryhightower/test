@@ -18,7 +18,7 @@ def predict():
     final_features = [np.array(int_features)]
     final_features = np.asarray(final_features)
     
-    if issubclass(final_features.dtype('int64').type, final_features.integer) == True: # new code
+    if np.isnan(final_features).any() == False: # new code
         prediction = model.predict(final_features)
 
         output = round(prediction[0], 2)
