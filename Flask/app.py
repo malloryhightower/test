@@ -34,5 +34,4 @@ def predict_api():
     return jsonify(output)
 
 if __name__ == "__main__":
-    #app.run(host="0.0.0.0", port=443)
-    app.run(ssl_context='adhoc')
+    app.run(host="0.0.0.0", port=80)
