@@ -16,11 +16,15 @@ def predict():
     '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    if final_features.isdigit(): # new code
+        prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
+        output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
+        return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
+    else: # new code 
+        return render_template('index.html', prediction_text='invalid input')
+    
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
