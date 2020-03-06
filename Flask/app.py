@@ -21,11 +21,11 @@ def predict():
     final_features = np.asarray(final_features)
     
 
-     prediction = model.predict(final_features)
+    prediction = model.predict(final_features)
 
-     output = round(prediction[0], 2)
+    output = round(prediction[0], 2)
 
-     return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(type(int_features))
+    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(type(int_features))
      
 
 @app.route('/predict_api',methods=['POST'])
