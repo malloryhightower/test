@@ -14,7 +14,7 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    if np.isfinite in request.form.values() == True:
+    if x in request.form.values().isfinite == True:
         return render_template('index.html', prediction_text='invalid input')
     else:
         int_features = [int(x) for x in request.form.values()]
