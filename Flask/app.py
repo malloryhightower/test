@@ -14,7 +14,7 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    if nan in request.form.values():
+    if np.nan in request.form.values():
         return render_template('index.html', prediction_text='invalid input')
     else:
         int_features = [int(x) for x in request.form.values()]
